@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import glob
 
 st.set_page_config(page_title="ETF 리밸런싱 분석", layout="wide")
 
@@ -53,8 +54,14 @@ def highlight_status(row):
 # 실행 및 화면 구성
 st.title("🚀 ETF 구성종목 리밸런싱 리포트")
 
-file_1 = 'NAV 구성종목시세_20260310_180000.xls'
-file_2 = 'NAV 구성종목시세_20260321_184011.xls'
+#file_1 = 'NAV 구성종목시세_20260310_180000.xls'
+#file_2 = 'NAV 구성종목시세_20260321_184011.xls'
+
+filename_list = glob.glob('NAV 구성종목시세_*.xls')
+filename_list.sort()
+
+file_1 = filename_list[-2]
+file_2 = filename_list[-1]
 
 try:
     final_df = process_rebalancing(file_1, file_2)
