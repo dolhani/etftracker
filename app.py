@@ -57,7 +57,7 @@ st.title("🚀 ETF 구성종목 리밸런싱 리포트")
 #file_1 = 'NAV 구성종목시세_20260310_180000.xls'
 #file_2 = 'NAV 구성종목시세_20260321_184011.xls'
 
-filename_list = glob.glob('NAV 구성종목시세_*.xls')
+filename_list = glob.glob('NAV 구성종목시세_*.xls*')
 filename_list.sort()
 
 file_1 = filename_list[-2]
